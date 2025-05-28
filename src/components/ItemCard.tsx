@@ -20,8 +20,8 @@ interface ItemCardProps {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-serif font-medium text-gray-800 mb-2">{item.name}</h3>
-        <p className="text-gray-600 mb-4">${item.preco.toFixed(2)}</p>
+        <h3 className="text-xl font-serif font-medium text-gray-800 mb-2">{item.nome}</h3>
+        <p className="text-gray-600 mb-4">R${item.preco.toFixed(2)}</p>
         
         <div className="mb-6">
           <ProgressBar percentage={progressPercentage} />

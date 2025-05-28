@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
           <div className="flex items-center">
             <Heart className="h-8 w-8 text-rose-400 mr-2" />
             <h1 className="text-3xl font-serif font-medium text-gray-800">
-              Casamento Maiara & Luis
+              Casamento Maiara & Luiz
             </h1>
           </div>
           {/* <Link 
@@ -69,10 +69,10 @@ const HomePage: React.FC = () => {
         ) : (
           <>
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-serif text-gray-800 mb-4">Ficamos gratos de você nos ajudar!</h2>
+              <h2 className="text-4xl font-serif text-gray-800 mb-4">Bem-vindos ao nosso site!</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Nos ajude a celebrar nosso dia especial contribuindo com esses presentes para nossa nova vida juntos.
-                Cada contribuição nos aproxima mais de realizar nossos sonhos!
+              É uma alegria imensa poder dividir com vocês esse capítulo tão especial da nossa história. Aqui vocês encontram sugestões de presentes, mas, 
+              acima de tudo, agradecemos por estarem conosco neste momento único.
               </p>
             </div>
             <ItemList items={items} onDonateClick={handleDonateClick} />
@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
 
       <footer className="bg-gray-50 py-8 border-t border-gray-200">
         <div className="container mx-auto px-4 text-center text-gray-500">
-          <p>© 2025 Casamento Maiara & Luis</p>
+          <p>© 2025 Casamento Maiara & Luiz</p>
         </div>
       </footer>
     </div>

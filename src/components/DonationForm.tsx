@@ -197,7 +197,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ itemId, item, onComplete })
                 name="amount"
                 value={formData.amount}
                 onChange={handleAmountChange}
-                min="1"
+                min="0"
                 max={maxDonationAmount}
                 className="w-full p-3 pl-7 border border-gray-300 rounded-md focus:ring-2 focus:ring-rose-300 focus:border-rose-500 outline-none transition"
               />

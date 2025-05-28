@@ -35,7 +35,7 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, itemName }) => {
             </div>
           </div>
           <div className="text-sm text-gray-500">
-            Contribuiu para: {itemName}
+            Contribuiu para: <strong> {itemName} </strong> 
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, itemName }) => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-gray-600 font-medium">Valor:</span>
-              <span className="text-xl font-bold text-gray-800">${donor.amount.toFixed(2)}</span>
+              <span className="text-xl font-bold text-gray-800">R${donor.amount.toFixed(2)}</span>
             </div>
             
             {donor.photoUrl && (

@@ -39,3 +39,37 @@ input:focus, textarea:focus {
 .progress-fill {
   animation: progressFill 1s ease-out forwards;
 }
+
+
+main.container.mx-auto.px-4.pt-32.pb-16 {
+  background-color: #eefddf !important; 
+}
+
+
+.from-rose-400 {
+  --tw-gradient-from: #61d4b0 !important;
+  --tw-gradient-to: #61d4b0 var(--tw-gradient-to-position) !important; 
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+button.w-full.py-3.px-4.bg-rose-500.hover\:bg-rose-600.text-white.font-medium.text-center.rounded-md.transition-colors.duration-300 {
+  background-color: #61d4b0 !important;
+}
+
+svg.lucide.lucide-heart.h-8.w-8.text-rose-400.mr-2 {
+  color: #61d4b0 !important;
+}
+
+.text-rose-500 {
+    --tw-text-opacity: 1;
+    color: #61d4b0;
+}
+
+.border-rose-500 {
+    --tw-border-opacity: 1;
+    border-color: #61d4b0;
+}
+
+.p-4.bg-rose-50.border-b.border-rose-100 {
+  background-color: #61d4b0;
+}
