@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { Item, TotalItem } from '../types';
 import { ImagePlus } from 'lucide-react';
+import BankTransferCard from './BankTransferCard';
 
 interface DonationFormProps {
   itemId: string;
@@ -192,6 +193,9 @@ const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             )}
           </div>
           
+                        <BankTransferCard />
+
+
           <div>
             <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
               Valor da contribuição *
@@ -213,9 +217,11 @@ const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
             <p className="mt-1 text-sm text-gray-500">
               Valor máximo da contribuição: R${maxDonationAmount.toFixed(2)}
+              Exemplo R$0.00 , R$0000.00
             </p>
           </div>
           
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Comprovante pagamento *
