@@ -28,14 +28,23 @@ const DonationForm: React.FC<DonationFormProps> = ({ itemId, item, onComplete })
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value) && value > 0) {
-      const maxAmount = item.item.preco - item.arrecadado;
-      const amount = Math.min(value, maxAmount);
-      setFormData(prev => ({ ...prev, amount }));
-    }
-  };
+const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const raw = e.target.value;
+
+  // Atualiza o estado para o valor em string (mesmo que vazio)
+  setFormData(prev => ({ ...prev, amount: raw === "" ? "" : Number(raw) }));
+
+  // Se estiver vazio, não faz mais nada (evita parseInt em string vazia)
+  if (raw === "") return;
+
+  const value = parseInt(raw, 10);
+
+  if (!isNaN(value) && value > 0) {
+    const maxAmount = item.item.preco - item.arrecadado;
+    const amount = Math.min(value, maxAmount);
+    setFormData(prev => ({ ...prev, amount }));
+  }
+};
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
