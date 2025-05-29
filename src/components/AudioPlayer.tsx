@@ -9,7 +9,7 @@ const AudioPlayer: React.FC = () => {
   const handleEnableAudio = () => {
     const audio = audioRef.current;
     if (audio) {
-      audio.volume = 0.3;
+      audio.volume = 0.05;
       audio.play().catch((err) => {
         console.warn("Erro ao tentar tocar o áudio:", err);
       });
