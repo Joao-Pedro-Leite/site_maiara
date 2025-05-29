@@ -216,7 +216,7 @@ const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               />
             </div>
             <p className="mt-1 text-sm text-gray-500">
-              Valor máximo da contribuição: R${maxDonationAmount.toFixed(2)}
+              Valor máximo da contribuição: R${maxDonationAmount.toFixed(2)} <br/>
               Exemplo R$0.00 , R$0000.00
             </p>
           </div>
