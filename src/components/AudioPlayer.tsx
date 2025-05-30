@@ -9,7 +9,7 @@ const AudioPlayer: React.FC = () => {
   const handleEnableAudio = () => {
     const audio = audioRef.current;
     if (audio) {
-      audio.volume = 0.05;
+      audio.volume = 0.3;
       audio.play().catch((err) => {
         console.warn("Erro ao tentar tocar o áudio:", err);
       });
@@ -36,17 +36,23 @@ const AudioPlayer: React.FC = () => {
           onClick={handleEnableAudio}
           style={{
             position: "fixed",
-            top: 20,
-            right: 20,
-            zIndex: 1000,
-            padding: "10px 20px",
+            bottom: 20,
+            left: "50%",
+            transform: "translateX(-50%)",
+            padding: "12px 24px",
             fontSize: "16px",
+            background: "#fff",
+            color: "#333",
+            border: "1px solid #ccc",
+            borderRadius: "12px",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            zIndex: 1000,
           }}
         >
           🔊 Ativar Som
         </button>
       )}
-      <audio ref={audioRef} src="/data/musica.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/data/musica.mp3" preload="auto" loop />
     </>
   );
 };
