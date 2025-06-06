@@ -15,6 +15,22 @@ const DonorList: React.FC = () => {
     donor.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+    const isLoading = !donors.length || !items.length;
+
+  // 👇 Verificação de loading aqui
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="flex flex-col items-center gap-4">
+          <div
+          className="w-10 h-10 border-4 border-rose-500 border-t-transparent rounded-full animate-spin"
+          style={{ borderTopColor: 'transparent' }}>
+          </div>
+          <p className="text-gray-500">Carregando doações...</p>
+        </div>
+      </div>
+    );
+  }
 
 
   return (
@@ -41,6 +57,7 @@ const DonorList: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredDonors.map(donor => {
             const item = items.find(item => item.item.item_id === donor.id);
+            if (!item) return null;
             return (
               <DonorCard 
                 key={donor.id} 

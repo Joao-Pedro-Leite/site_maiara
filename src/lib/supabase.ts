@@ -293,12 +293,14 @@ export async function calcularValorArrecadado(id: string): Promise<number | null
   return arrecadado
 }
 
-export async function listarDoadorDoItem(id: number): Promise<number | null> {
+export async function listarDoadorDoItem(iddonation: number): Promise<number | null> {
   
+
+
   const { data: doacaoId, error: errDoacaoItens } = await supabase
   .from('Doacao')
   .select('doacao_id')
-  .eq('doador_id', id)
+  .eq('doador_id', iddonation)
   .maybeSingle(); // ou .limit(1) se preferir
 
 
@@ -307,19 +309,22 @@ export async function listarDoadorDoItem(id: number): Promise<number | null> {
     return null
   }
 
+
   const { data, error } = await supabase
     .from('DoacaoItem')
     .select('item_id')
     .eq('doacao_id', doacaoId.doacao_id)
+
+
 
   if (error) {
     console.error(`Erro ao buscar doador do item ${id}:`, error)
     return null
   }
 
-  if (data) {
-    return data[0].item_id 
-  }
+  if (data && data.length > 0) {
+  return data[0].item_id;
+}
   return 0
 
 }

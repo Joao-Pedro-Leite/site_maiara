@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { User, DollarSign, MessageCircle, Phone } from 'lucide-react';
 import { Donor } from '../../types';
 
+
 interface DonorCardProps {
   donor: Donor;
   itemName: string;
@@ -11,6 +12,7 @@ type TabView = 'donation' | 'message';
 
 const DonorCard: React.FC<DonorCardProps> = ({ donor, itemName }) => {
   const [activeTab, setActiveTab] = useState<TabView>('donation');
+  const [showImageModal, setShowImageModal] = useState(false);
   const formattedDate = new Date(donor.timestamp).toLocaleDateString();
   
   return (
@@ -82,11 +84,14 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, itemName }) => {
             {donor.photoUrl && (
               <div>
                 <p className="text-sm text-gray-600 mb-2">Comprovante:</p>
+                {/* Teste */}
                 <img 
                   src={donor.photoUrl} 
                   alt={donor.name} 
-                  className="w-full h-48 object-cover rounded-md"
+                  className="w-full h-48 object-cover rounded-md cursor-pointer transition hover:brightness-90"
+                  onClick={() => setShowImageModal(true)}
                 />
+                {/* Teste */}
               </div>
             )}
           </div>
@@ -117,6 +122,23 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, itemName }) => {
           </div>
         )}
       </div>
+        {/* Teste 2 */}
+
+        {showImageModal && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+            onClick={() => setShowImageModal(false)}>
+            <img 
+              src={donor.photoUrl} 
+              alt="Comprovante ampliado" 
+              className="max-w-full max-h-full rounded-lg shadow-lg"
+              onClick={(e) => e.stopPropagation()} // impede que o clique feche o modal se for na imagem
+            />
+          </div>
+        )}
+
+
+        {/* Teste 2 */}
     </div>
   );
 };
